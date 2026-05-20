@@ -1,3 +1,6 @@
+# 修正版CSS（スマホでも形が崩れにくい版）
+
+```css
 /* ========================= */
 /* style.css */
 /* ========================= */
@@ -5,7 +8,7 @@
 /* 全体設定 */
 body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
 
   background-color: #f4f8f8;
 
@@ -15,13 +18,22 @@ body {
 }
 
 /* ページ全体 */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 /* ========================= */
 /* ヘッダー */
 /* ========================= */
 
 .site-header {
 
-  height: 80px;
+  width: 100%;
+  min-height: 80px;
 
   background-color: white;
 
@@ -49,6 +61,8 @@ body {
   align-items: center;
 
   gap: 15px;
+
+  min-width: 0;
 }
 
 /* ロゴ */
@@ -58,13 +72,16 @@ body {
   height: 50px;
 
   object-fit: contain;
+
+  flex-shrink: 0;
 }
 
 /* タイトル */
 .header-title {
 
-  font-size: 28px;
-  
+  font-size: clamp(20px, 2vw, 28px);
+
+  white-space: nowrap;
 }
 
 /* メニュー */
@@ -73,6 +90,10 @@ body {
   display: flex;
 
   gap: 30px;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
 }
 
 /* メニューリンク */
@@ -85,7 +106,10 @@ body {
   font-weight: bold;
 
   transition: 0.2s;
+
+  white-space: nowrap;
 }
+
 /* ========================= */
 /* スケジュールメニュー */
 /* ========================= */
@@ -163,14 +187,16 @@ body {
   background-color: #f3f3f3;
 
   color: #d75c37;
-}/* ========================= */
+}
+
+/* ========================= */
 /* ヒーロー */
 /* ========================= */
 
 .hero {
 
   width: 100%;
-  height: 350px;
+  height: clamp(220px, 40vw, 350px);
 
   background-color: #d9d9d9;
 
@@ -198,15 +224,15 @@ body {
 
   color: white;
 
-  font-size: 72px;
+  font-size: clamp(36px, 8vw, 72px);
 
   margin: 0;
 
   text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-.container {
-  max-width: 900px;
-  margin: auto;
+
+  text-align: center;
+
+  padding: 0 10px;
 }
 
 /* タイトル */
@@ -223,11 +249,13 @@ h1 {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+
+  flex-wrap: wrap;
 }
 
 /* ボタン共通 */
 .tab-button {
-  flex: 1;
+  flex: 1 1 200px;
   padding: 15px;
   border: none;
   border-radius: 10px;
@@ -322,7 +350,7 @@ h1 {
 
 /* 企画タイトル */
 .project-title {
-  font-size: 20px;
+  font-size: clamp(18px, 3vw, 20px);
   margin: 5px 0;
 }
 
@@ -365,11 +393,11 @@ h1 {
 .place {
   background-color: #555555;
 }
+
 /* ========================= */
 /* モーダル */
 /* ========================= */
 
-/* 背景 */
 .modal {
   display: none;
 
@@ -389,16 +417,14 @@ h1 {
   z-index: 1000;
 }
 
-/* 表示時 */
 .modal.show {
   display: flex;
 }
 
-/* モーダル本体 */
 .modal-content {
   background-color: white;
 
-  width: 90%;
+  width: calc(100% - 30px);
   max-width: 500px;
 
   border-radius: 20px;
@@ -407,10 +433,11 @@ h1 {
 
   position: relative;
 
+  box-sizing: border-box;
+
   animation: popup 0.2s ease;
 }
 
-/* ポップアップアニメーション */
 @keyframes popup {
 
   from {
@@ -425,7 +452,6 @@ h1 {
 
 }
 
-/* 閉じるボタン */
 .close-button {
   position: absolute;
 
@@ -437,7 +463,6 @@ h1 {
   cursor: pointer;
 }
 
-/* 画像エリア */
 .modal-image {
   width: 100%;
   height: 200px;
@@ -454,6 +479,7 @@ h1 {
 
   color: gray;
 }
+
 /* ========================= */
 /* モーダルヘッダー */
 /* ========================= */
@@ -499,28 +525,42 @@ h1 {
   height: 100%;
 
   object-fit: cover;
+}
+
 /* ========================= */
 /* スマホ対応 */
 /* ========================= */
 
 @media screen and (max-width: 768px) {
 
+  body {
+    padding: 0;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
   /* ヘッダー */
   .site-header {
 
-    height: auto;
+    min-height: auto;
 
     flex-direction: column;
 
     align-items: flex-start;
 
     padding: 15px;
+
+    gap: 15px;
   }
 
   /* 左側 */
   .header-left {
 
-    margin-bottom: 15px;
+    width: 100%;
+
+    margin-bottom: 0;
   }
 
   /* タイトル */
@@ -539,16 +579,12 @@ h1 {
     flex-wrap: wrap;
 
     gap: 10px;
+
+    justify-content: flex-start;
   }
 
   /* メニューリンク */
   .header-nav a {
-
-    font-size: 14px;
-  }
-
-  /* スケジュールボタン */
-  .dropdown-button {
 
     font-size: 14px;
   }
@@ -563,6 +599,11 @@ h1 {
   .hero-title {
 
     font-size: 42px;
+  }
+
+  /* モーダル */
+  .modal-content {
+    padding: 20px;
   }
 
 }
