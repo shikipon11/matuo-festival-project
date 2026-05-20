@@ -338,3 +338,22 @@ modal.addEventListener("click", (event) => {
   }
 
 });
+/* ========================= */
+/* スケジュール開閉 */
+/* ========================= */
+
+const scheduleToggle =
+  document.getElementById("schedule-toggle");
+
+const scheduleDropdown =
+  document.getElementById("schedule-dropdown");
+
+/* クリック時 */
+scheduleToggle.addEventListener(
+  "click",
+  () => {
+
+    scheduleDropdown.classList.toggle("open");
+
+  }
+);
