@@ -1,6 +1,7 @@
 // =========================
 // script.js
 // =========================
+
 // =========================
 // 仮データ
 // =========================
@@ -24,25 +25,39 @@ const projects = [
 // =========================
 
 const contentArea =
-  document.getElementById("content-area");
+  document.getElementById(
+    "content-area"
+  );
 
 const tabButtons =
-  document.querySelectorAll(".tab-button");
+  document.querySelectorAll(
+    ".tab-button"
+  );
 
 const modal =
-  document.getElementById("modal");
+  document.getElementById(
+    "modal"
+  );
 
 const closeModal =
-  document.getElementById("close-modal");
+  document.getElementById(
+    "close-modal"
+  );
 
 const modalTitle =
-  document.getElementById("modal-title");
+  document.getElementById(
+    "modal-title"
+  );
 
 const modalCategory =
-  document.getElementById("modal-category");
+  document.getElementById(
+    "modal-category"
+  );
 
 const modalPlace =
-  document.getElementById("modal-place");
+  document.getElementById(
+    "modal-place"
+  );
 
 const modalCategoryIcon =
   document.getElementById(
@@ -54,10 +69,14 @@ const modalCategoryIcon =
 // =========================
 
 const menuButton =
-  document.getElementById("menu-button");
+  document.getElementById(
+    "menu-button"
+  );
 
 const headerNav =
-  document.getElementById("header-nav");
+  document.getElementById(
+    "header-nav"
+  );
 
 /* 開閉 */
 menuButton.addEventListener(
@@ -67,28 +86,26 @@ menuButton.addEventListener(
     /* 外側クリック防止 */
     event.stopPropagation();
 
-    /* 開閉 */
+    /* メニュー開閉 */
     headerNav.classList.toggle(
       "open"
     );
 
   }
 );
-// =========================
-// 外側クリックで閉じる
-// =========================
 
+/* 外側クリックで閉じる */
 document.addEventListener(
   "click",
   event => {
 
-    /* メニュー内 */
+    /* メニュー内判定 */
     const isNav =
       headerNav.contains(
         event.target
       );
 
-    /* ボタン */
+    /* ボタン判定 */
     const isButton =
       menuButton.contains(
         event.target
@@ -108,6 +125,7 @@ document.addEventListener(
 
   }
 );
+
 // =========================
 // スケジュール開閉
 // =========================
@@ -127,31 +145,29 @@ scheduleToggle.addEventListener(
   "click",
   event => {
 
-    /* 外側クリック判定を止める */
+    /* 外側クリック防止 */
     event.stopPropagation();
 
-    /* 開閉 */
+    /* ドロップダウン開閉 */
     scheduleDropdown.classList.toggle(
       "open"
     );
 
   }
 );
-// =========================
-// 外側クリックで閉じる
-// =========================
 
+/* 外側クリックで閉じる */
 document.addEventListener(
   "click",
   event => {
 
-    /* ドロップダウン内クリック */
+    /* ドロップダウン内判定 */
     const isDropdown =
       scheduleDropdown.contains(
         event.target
       );
 
-    /* ボタン内クリック */
+    /* ボタン判定 */
     const isButton =
       scheduleToggle.contains(
         event.target
@@ -177,6 +193,7 @@ document.addEventListener(
 // =========================
 
 renderNumberView();
+
 // =========================
 // タブ切り替え
 // =========================
@@ -190,14 +207,18 @@ tabButtons.forEach(button => {
       /* active削除 */
       tabButtons.forEach(btn => {
 
-        btn.classList.remove("active");
+        btn.classList.remove(
+          "active"
+        );
 
       });
 
       /* active追加 */
-      button.classList.add("active");
+      button.classList.add(
+        "active"
+      );
 
-      /* データ取得 */
+      /* タブ取得 */
       const tab =
         button.dataset.tab;
 
@@ -226,7 +247,7 @@ tabButtons.forEach(button => {
 });
 
 // =========================
-// 番号順
+// 番号順表示
 // =========================
 
 function renderNumberView() {
@@ -250,7 +271,7 @@ function renderNumberView() {
 }
 
 // =========================
-// カテゴリ順
+// カテゴリ順表示
 // =========================
 
 function renderCategoryView() {
@@ -281,14 +302,16 @@ function renderCategoryView() {
   createSection(
     "パフォーマンス",
     projects.filter(
-      p => p.category === "パフォーマンス"
+      p =>
+        p.category ===
+        "パフォーマンス"
     )
   );
 
 }
 
 // =========================
-// 場所順
+// 場所順表示
 // =========================
 
 function renderPlaceView() {
@@ -329,32 +352,49 @@ function renderPlaceView() {
 // セクション生成
 // =========================
 
-function createSection(title, data) {
+function createSection(
+  title,
+  data
+) {
 
-  /* section */
+  // =========================
+  // section
+  // =========================
+
   const section =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   section.className =
     "section";
 
-  /* header */
+  // =========================
+  // header
+  // =========================
+
   const header =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   header.className =
     "section-header";
 
   /* タイトル */
   const titleElement =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
 
   titleElement.textContent =
     title;
 
-  /* アイコン */
+  /* 開閉アイコン */
   const icon =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
 
   icon.className =
     "toggle-icon";
@@ -362,13 +402,22 @@ function createSection(title, data) {
   icon.textContent = "▶";
 
   /* header追加 */
-  header.appendChild(titleElement);
+  header.appendChild(
+    titleElement
+  );
 
-  header.appendChild(icon);
+  header.appendChild(
+    icon
+  );
 
-  /* 一覧 */
+  // =========================
+  // 一覧
+  // =========================
+
   const list =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   list.className =
     "project-list";
@@ -381,12 +430,17 @@ function createSection(title, data) {
 
     /* カード */
     const card =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
     card.className =
       "project-card";
 
-    /* 色 */
+    // =========================
+    // カテゴリ色
+    // =========================
+
     let categoryClass = "";
 
     if (
@@ -401,7 +455,8 @@ function createSection(title, data) {
       project.category === "展示"
     ) {
 
-      categoryClass = "exhibition";
+      categoryClass =
+        "exhibition";
 
     }
 
@@ -409,7 +464,8 @@ function createSection(title, data) {
       project.category === "体験"
     ) {
 
-      categoryClass = "experience";
+      categoryClass =
+        "experience";
 
     }
 
@@ -423,7 +479,10 @@ function createSection(title, data) {
 
     }
 
-    /* 中身 */
+    // =========================
+    // カード中身
+    // =========================
+
     card.innerHTML = `
 
       <div class="project-number">
@@ -449,7 +508,7 @@ function createSection(title, data) {
     `;
 
     // =========================
-    // モーダル
+    // モーダル表示
     // =========================
 
     card.addEventListener(
@@ -491,7 +550,7 @@ function createSection(title, data) {
   });
 
   // =========================
-  // 開閉
+  // セクション開閉
   // =========================
 
   header.addEventListener(
@@ -519,13 +578,21 @@ function createSection(title, data) {
     }
   );
 
-  /* section追加 */
-  section.appendChild(header);
+  // =========================
+  // section追加
+  // =========================
 
-  section.appendChild(list);
+  section.appendChild(
+    header
+  );
 
-  /* 表示 */
-  contentArea.appendChild(section);
+  section.appendChild(
+    list
+  );
+
+  contentArea.appendChild(
+    section
+  );
 
 }
 
@@ -550,7 +617,9 @@ modal.addEventListener(
   "click",
   event => {
 
-    if (event.target === modal) {
+    if (
+      event.target === modal
+    ) {
 
       modal.classList.remove(
         "show"
