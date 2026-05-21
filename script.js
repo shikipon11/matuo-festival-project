@@ -86,20 +86,18 @@ const scheduleDropdown =
 /* 開閉 */
 scheduleToggle.addEventListener(
   "click",
-  () => {
+  event => {
 
+    /* 外側クリック判定を止める */
+    event.stopPropagation();
+
+    /* 開閉 */
     scheduleDropdown.classList.toggle(
       "open"
     );
 
   }
 );
-
-// =========================
-// 初期表示
-// =========================
-
-renderNumberView();
 // =========================
 // 外側クリックで閉じる
 // =========================
@@ -108,16 +106,19 @@ document.addEventListener(
   "click",
   event => {
 
+    /* ドロップダウン内クリック */
     const isDropdown =
       scheduleDropdown.contains(
         event.target
       );
 
+    /* ボタン内クリック */
     const isButton =
       scheduleToggle.contains(
         event.target
       );
 
+    /* 外側 */
     if (
       !isDropdown &&
       !isButton
@@ -131,6 +132,12 @@ document.addEventListener(
 
   }
 );
+
+// =========================
+// 初期表示
+// =========================
+
+renderNumberView();
 // =========================
 // タブ切り替え
 // =========================
