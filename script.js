@@ -465,7 +465,7 @@ function createSection(title, data) {
 
         /* 番号 */
         modalNumber.textContent =
-          ` ${project.number}`;
+          project.number;
 
         /* タイトル */
         modalTitle.textContent =
