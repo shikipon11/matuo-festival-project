@@ -2,8 +2,12 @@
 // script.js
 // =========================
 
-// 仮の企画データ
+// =========================
+// 仮データ
+// =========================
+
 const projects = [
+
   { number: 1, category: "飲食", place: "教室棟" },
   { number: 2, category: "展示", place: "管理棟" },
   { number: 3, category: "体験", place: "定時棟" },
@@ -12,41 +16,22 @@ const projects = [
   { number: 5, category: "飲食", place: "定時棟" },
   { number: 6, category: "展示", place: "教室棟" },
   { number: 7, category: "体験", place: "その他" },
-  { number: 8, category: "パフォーマンス", place: "管理棟" },
+  { number: 8, category: "パフォーマンス", place: "管理棟" }
 
-  { number: 9, category: "飲食", place: "その他" },
-  { number: 10, category: "展示", place: "定時棟" },
-  { number: 11, category: "体験", place: "管理棟" },
-  { number: 12, category: "パフォーマンス", place: "教室棟" },
-
-  { number: 13, category: "飲食", place: "管理棟" },
-  { number: 14, category: "展示", place: "その他" },
-  { number: 15, category: "体験", place: "教室棟" },
-  { number: 16, category: "パフォーマンス", place: "定時棟" },
-
-  { number: 17, category: "飲食", place: "教室棟" },
-  { number: 18, category: "展示", place: "管理棟" },
-  { number: 19, category: "体験", place: "定時棟" },
-  { number: 20, category: "パフォーマンス", place: "その他" },
-
-  { number: 21, category: "飲食", place: "定時棟" },
-  { number: 22, category: "展示", place: "教室棟" },
-  { number: 23, category: "体験", place: "その他" },
-  { number: 24, category: "パフォーマンス", place: "管理棟" },
-
-  { number: 25, category: "飲食", place: "その他" },
-  { number: 26, category: "展示", place: "定時棟" },
-  { number: 27, category: "体験", place: "管理棟" },
-  { number: 28, category: "パフォーマンス", place: "教室棟" },
-
-  { number: 29, category: "飲食", place: "管理棟" },
-  { number: 30, category: "展示", place: "その他" }
 ];
+
 // =========================
-// モーダル取得
+// 要素取得
 // =========================
 
-const modal = document.getElementById("modal");
+const contentArea =
+  document.getElementById("content-area");
+
+const tabButtons =
+  document.querySelectorAll(".tab-button");
+
+const modal =
+  document.getElementById("modal");
 
 const closeModal =
   document.getElementById("close-modal");
@@ -59,17 +44,62 @@ const modalCategory =
 
 const modalPlace =
   document.getElementById("modal-place");
-// 表示エリア取得
-const contentArea = document.getElementById("content-area");
-
-// タブボタン取得
-const tabButtons = document.querySelectorAll(".tab-button");
 
 const modalCategoryIcon =
   document.getElementById(
     "modal-category-icon"
   );
-// 最初は番号順表示
+
+// =========================
+// ハンバーガーメニュー
+// =========================
+
+const menuButton =
+  document.getElementById("menu-button");
+
+const headerNav =
+  document.getElementById("header-nav");
+
+/* 開閉 */
+menuButton.addEventListener(
+  "click",
+  () => {
+
+    headerNav.classList.toggle("open");
+
+  }
+);
+
+// =========================
+// スケジュール開閉
+// =========================
+
+const scheduleToggle =
+  document.getElementById(
+    "schedule-toggle"
+  );
+
+const scheduleDropdown =
+  document.getElementById(
+    "schedule-dropdown"
+  );
+
+/* 開閉 */
+scheduleToggle.addEventListener(
+  "click",
+  () => {
+
+    scheduleDropdown.classList.toggle(
+      "open"
+    );
+
+  }
+);
+
+// =========================
+// 初期表示
+// =========================
+
 renderNumberView();
 
 // =========================
@@ -78,60 +108,74 @@ renderNumberView();
 
 tabButtons.forEach(button => {
 
-  button.addEventListener("click", () => {
+  button.addEventListener(
+    "click",
+    () => {
 
-    // active削除
-    tabButtons.forEach(btn => {
-      btn.classList.remove("active");
-    });
+      /* active削除 */
+      tabButtons.forEach(btn => {
 
-    // active追加
-    button.classList.add("active");
+        btn.classList.remove("active");
 
-    // データ取得
-    const tab = button.dataset.tab;
+      });
 
-    // 表示切り替え
-    if (tab === "number") {
-      renderNumberView();
+      /* active追加 */
+      button.classList.add("active");
+
+      /* データ取得 */
+      const tab =
+        button.dataset.tab;
+
+      /* 表示切り替え */
+      if (tab === "number") {
+
+        renderNumberView();
+
+      }
+
+      if (tab === "category") {
+
+        renderCategoryView();
+
+      }
+
+      if (tab === "place") {
+
+        renderPlaceView();
+
+      }
+
     }
-
-    if (tab === "category") {
-      renderCategoryView();
-    }
-
-    if (tab === "place") {
-      renderPlaceView();
-    }
-
-  });
+  );
 
 });
 
 // =========================
-// 番号順表示
+// 番号順
 // =========================
 
 function renderNumberView() {
 
   contentArea.innerHTML = "";
 
-  createSection("1~10", projects.filter(p => p.number <= 10));
-
   createSection(
-    "11~20",
-    projects.filter(p => p.number >= 11 && p.number <= 20)
+    "1〜4",
+    projects.filter(
+      p => p.number <= 4
+    )
   );
 
   createSection(
-    "21~30",
-    projects.filter(p => p.number >= 21)
+    "5〜8",
+    projects.filter(
+      p => p.number >= 5
+    )
   );
 
 }
 
 // =========================
-// カテゴリ順表示
+// カテゴリ順
 // =========================
 
 function renderCategoryView() {
@@ -140,28 +184,36 @@ function renderCategoryView() {
 
   createSection(
     "飲食",
-    projects.filter(p => p.category === "飲食")
-  );
-
-  createSection(
-    "体験",
-    projects.filter(p => p.category === "体験")
+    projects.filter(
+      p => p.category === "飲食"
+    )
   );
 
   createSection(
     "展示",
-    projects.filter(p => p.category === "展示")
+    projects.filter(
+      p => p.category === "展示"
+    )
+  );
+
+  createSection(
+    "体験",
+    projects.filter(
+      p => p.category === "体験"
+    )
   );
 
   createSection(
     "パフォーマンス",
-    projects.filter(p => p.category === "パフォーマンス")
+    projects.filter(
+      p => p.category === "パフォーマンス"
+    )
   );
 
 }
 
 // =========================
-// 場所順表示
+// 場所順
 // =========================
 
 function renderPlaceView() {
@@ -170,85 +222,135 @@ function renderPlaceView() {
 
   createSection(
     "教室棟",
-    projects.filter(p => p.place === "教室棟")
+    projects.filter(
+      p => p.place === "教室棟"
+    )
   );
 
   createSection(
     "管理棟",
-    projects.filter(p => p.place === "管理棟")
+    projects.filter(
+      p => p.place === "管理棟"
+    )
   );
 
   createSection(
     "定時棟",
-    projects.filter(p => p.place === "定時棟")
+    projects.filter(
+      p => p.place === "定時棟"
+    )
   );
 
   createSection(
     "その他",
-    projects.filter(p => p.place === "その他")
+    projects.filter(
+      p => p.place === "その他"
+    )
   );
 
 }
 
 // =========================
-// 小区分生成
+// セクション生成
 // =========================
 
 function createSection(title, data) {
 
-  // section作成
-  const section = document.createElement("div");
-  section.className = "section";
+  /* section */
+  const section =
+    document.createElement("div");
 
-  // header作成
-  const header = document.createElement("div");
-  header.className = "section-header";
+  section.className =
+    "section";
 
-  // タイトル
-  const titleElement = document.createElement("span");
-  titleElement.textContent = title;
+  /* header */
+  const header =
+    document.createElement("div");
 
-  // アイコン
-  const icon = document.createElement("span");
-  icon.className = "toggle-icon";
+  header.className =
+    "section-header";
+
+  /* タイトル */
+  const titleElement =
+    document.createElement("span");
+
+  titleElement.textContent =
+    title;
+
+  /* アイコン */
+  const icon =
+    document.createElement("span");
+
+  icon.className =
+    "toggle-icon";
+
   icon.textContent = "▶";
 
-  // headerに追加
+  /* header追加 */
   header.appendChild(titleElement);
+
   header.appendChild(icon);
 
-  // 企画一覧
-  const list = document.createElement("div");
-  list.className = "project-list";
+  /* 一覧 */
+  const list =
+    document.createElement("div");
 
+  list.className =
+    "project-list";
+
+  // =========================
   // カード生成
+  // =========================
+
   data.forEach(project => {
 
-    // カード
-    const card = document.createElement("div");
-    card.className = "project-card";
+    /* カード */
+    const card =
+      document.createElement("div");
 
-    // カテゴリ色
+    card.className =
+      "project-card";
+
+    /* 色 */
     let categoryClass = "";
 
-    if (project.category === "飲食") {
+    if (
+      project.category === "飲食"
+    ) {
+
       categoryClass = "food";
+
     }
 
-    if (project.category === "体験") {
-      categoryClass = "experience";
-    }
+    if (
+      project.category === "展示"
+    ) {
 
-    if (project.category === "展示") {
       categoryClass = "exhibition";
+
     }
 
-    if (project.category === "パフォーマンス") {
-      categoryClass = "performance";
+    if (
+      project.category === "体験"
+    ) {
+
+      categoryClass = "experience";
+
     }
 
-    // カード内容
+    if (
+      project.category ===
+      "パフォーマンス"
+    ) {
+
+      categoryClass =
+        "performance";
+
+    }
+
+    /* 中身 */
     card.innerHTML = `
+
       <div class="project-number">
         企画 ${project.number}
       </div>
@@ -268,92 +370,118 @@ function createSection(title, data) {
         </div>
 
       </div>
+
     `;
-    // カードクリック
-card.addEventListener("click", () => {
 
-  // タイトル
-  modalTitle.textContent =
-    `仮企画 ${project.number}`;
+    // =========================
+    // モーダル
+    // =========================
 
-  // カテゴリ
-  modalCategory.textContent =
-    `カテゴリ：${project.category}`;
+    card.addEventListener(
+      "click",
+      () => {
 
-  // 場所
-  modalPlace.textContent =
-    `場所：${project.place}`;
-  // カテゴリアイコン表示
-modalCategoryIcon.innerHTML = `
-  <img
-    src="icons/${project.category}.png"
-    alt="${project.category}"
-  >
-`;
-  // モーダル表示
-  modal.classList.add("show");
+        /* タイトル */
+        modalTitle.textContent =
+          `仮企画 ${project.number}`;
 
-});
+        /* カテゴリ */
+        modalCategory.textContent =
+          `カテゴリ：${project.category}`;
 
-    // 一覧に追加
+        /* 場所 */
+        modalPlace.textContent =
+          `場所：${project.place}`;
+
+        /* アイコン */
+        modalCategoryIcon.innerHTML =
+          `
+          <img
+            src="icons/${project.category}.png"
+            alt="${project.category}"
+          >
+          `;
+
+        /* 表示 */
+        modal.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+    /* 一覧追加 */
     list.appendChild(card);
 
   });
 
+  // =========================
   // 開閉
-  header.addEventListener("click", () => {
+  // =========================
 
-    list.classList.toggle("open");
+  header.addEventListener(
+    "click",
+    () => {
 
-    if (list.classList.contains("open")) {
-      icon.textContent = "▼";
-    } else {
-      icon.textContent = "▶";
+      list.classList.toggle(
+        "open"
+      );
+
+      if (
+        list.classList.contains(
+          "open"
+        )
+      ) {
+
+        icon.textContent = "▼";
+
+      } else {
+
+        icon.textContent = "▶";
+
+      }
+
     }
+  );
 
-  });
-
-  // sectionに追加
+  /* section追加 */
   section.appendChild(header);
+
   section.appendChild(list);
 
-  // 表示
+  /* 表示 */
   contentArea.appendChild(section);
 
 }
+
 // =========================
 // モーダルを閉じる
 // =========================
 
-// ×ボタン
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("show");
-});
-
-// 背景クリック
-modal.addEventListener("click", (event) => {
-
-  if (event.target === modal) {
-    modal.classList.remove("show");
-  }
-
-});
-/* ========================= */
-/* スケジュール開閉 */
-/* ========================= */
-
-const scheduleToggle =
-  document.getElementById("schedule-toggle");
-
-const scheduleDropdown =
-  document.getElementById("schedule-dropdown");
-
-/* クリック時 */
-scheduleToggle.addEventListener(
+/* ×ボタン */
+closeModal.addEventListener(
   "click",
   () => {
 
-    scheduleDropdown.classList.toggle("open");
+    modal.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+/* 背景クリック */
+modal.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === modal) {
+
+      modal.classList.remove(
+        "show"
+      );
+
+    }
 
   }
 );
