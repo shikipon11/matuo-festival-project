@@ -62,13 +62,52 @@ const headerNav =
 /* 開閉 */
 menuButton.addEventListener(
   "click",
-  () => {
+  event => {
 
-    headerNav.classList.toggle("open");
+    /* 外側クリック防止 */
+    event.stopPropagation();
+
+    /* 開閉 */
+    headerNav.classList.toggle(
+      "open"
+    );
 
   }
 );
+// =========================
+// 外側クリックで閉じる
+// =========================
 
+document.addEventListener(
+  "click",
+  event => {
+
+    /* メニュー内 */
+    const isNav =
+      headerNav.contains(
+        event.target
+      );
+
+    /* ボタン */
+    const isButton =
+      menuButton.contains(
+        event.target
+      );
+
+    /* 外側 */
+    if (
+      !isNav &&
+      !isButton
+    ) {
+
+      headerNav.classList.remove(
+        "open"
+      );
+
+    }
+
+  }
+);
 // =========================
 // スケジュール開閉
 // =========================
