@@ -306,13 +306,13 @@ h1 {
 /* ホバー */
 .tab-button:hover {
 
-  background-color: #dddddd;
+  background-color: #f0d2c8;
 }
 
 /* 選択中 */
 .tab-button.active {
 
-  background-color: #2a83a2;
+  background-color: #d75c37;
 
   color: white;
 }
