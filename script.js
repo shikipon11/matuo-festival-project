@@ -366,7 +366,7 @@ function createSection(title, data) {
   icon.className =
     "toggle-icon";
 
-  icon.textContent = "⌄";
+  icon.textContent = "﹀";
   /* header追加 */
   header.appendChild(titleElement);
 
@@ -513,11 +513,11 @@ function createSection(title, data) {
         )
       ) {
 
-        icon.textContent = "⌃";
+        icon.textContent = "︿";
 
       } else {
 
-        icon.textContent = "⌄";
+        icon.textContent = "﹀";
 
       }
 
