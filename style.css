@@ -783,7 +783,7 @@ h1 {
   /* タイトル */
   .header-title {
 
-    font-size: 22px;
+    display: none;
   }
 
   /* ヒーロー */
