@@ -366,7 +366,7 @@ function createSection(title, data) {
   icon.className =
     "toggle-icon";
 
-  icon.textContent = "▶";
+  icon.innerHTML = "›";
 
   /* header追加 */
   header.appendChild(titleElement);
@@ -514,11 +514,11 @@ function createSection(title, data) {
         )
       ) {
 
-        icon.textContent = "▼";
+        icon.classList.add("open");
 
       } else {
 
-        icon.textContent = "▶";
+        icon.classList.remove("open");
 
       }
 
