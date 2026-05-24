@@ -649,7 +649,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* 番号 */
 #modal-number {
 
   min-width: 40px;
@@ -662,7 +661,7 @@ h1 {
 
   align-items: center;
 
-  border: 2px solid black;
+  background-color: #237e82;
 
   border-radius: 999px;
 
@@ -670,7 +669,7 @@ h1 {
 
   font-size: 14px;
 
-  color: black;
+  color: white;
 
   box-sizing: border-box;
 }
