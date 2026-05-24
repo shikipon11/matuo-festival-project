@@ -471,13 +471,7 @@ h1 {
 /* 飲食 */
 .food {
 
-  background-color: #ede282;
-}
-
-/* 体験 */
-.experience {
-
-  background-color: #6ebbcf;
+  background-color: #dfcc20;
 }
 
 /* 展示 */
@@ -486,12 +480,37 @@ h1 {
   background-color: #7bd071;
 }
 
+/* 体験 */
+.experience {
+
+  background-color: #6ebbcf;
+}
+
 /* パフォーマンス */
 .performance {
 
   background-color: #cd82ed;
 }
 
+.food-text {
+
+  color: #dfcc20;
+}
+
+.exhibition-text {
+
+  color: #7bd071;
+}
+
+.experience-text {
+
+  color: #6ebbcf;
+}
+
+.performance-text {
+
+  color: #cd82ed;
+}
 /* 場所 */
 .place {
 
