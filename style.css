@@ -442,9 +442,9 @@ h1 {
 
 .project-circle {
 
-  min-width: 40px;
+  min-width: 36px;
 
-  height: 40px;
+  height: 36px;
 
   display: flex;
 
@@ -458,7 +458,7 @@ h1 {
 
   font-weight: bold;
 
-  font-size: 28px;
+  font-size: 24px;
 
   color: white;
 
