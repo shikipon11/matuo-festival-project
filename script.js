@@ -475,7 +475,7 @@ if (title === "パフォーマンス") {
       </div>
 
       <div class="project-title">
-        仮企画 ${project.number}
+        仮企画 
       </div>
 
 </div>
