@@ -560,12 +560,13 @@ if (title === "パフォーマンス") {
         /* 場所 */
         if (project.place === "その他") {
 
-            modalPlace.textContent = "";
+            modalPlace.textContent = 
+              `場所: ${project.floor}`;
 
         } else {
 
             modalPlace.textContent =
-                `場所：${project.place}`;
+                `場所：${project.place} ${project.floor}`;
 
         }
 
