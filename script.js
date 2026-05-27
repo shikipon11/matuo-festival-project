@@ -43,7 +43,7 @@ const projects = [
   { number: 32, title: "現代音楽/吹奏楽", category: "パフォーマンス", place: "その他", floor: "中庭（野外ステージ）", images: ["images/現代音楽_page-0001.jpg", "images/吹奏楽班ステージ.jpg"] },
   { number: 33, title: "放送", category: "体験", place: "その他", floor: "昇降口(外)", image: ["images/放送班 - 1.png"] },
   { number: 34, title: "演劇", category: "パフォーマンス", place: "その他", floor: "同窓会館　1階", image: ["images/演劇班.jpg"] },
-  { number: 35, title: "室内楽/合唱", category: "パフォーマンス", place: "その他", floor: "同窓会館　2階", images: ["images/室内楽班.png", "混声合唱班_page-0001.jpg"] }
+  { number: 35, title: "室内楽/合唱", category: "パフォーマンス", place: "その他", floor: "同窓会館　2階", images: ["images/室内楽班.png", "images/混声合唱班_page-0001.jpg"] }
 ];
 
 // =========================
