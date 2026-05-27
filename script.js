@@ -267,21 +267,42 @@ function renderNumberView() {
   contentArea.innerHTML = "";
 
   createSection(
-    "1〜4",
+    "1〜10",
     projects.filter(
-      p => p.number <= 4
+      p =>
+        p.number >= 1 &&
+        p.number <= 10
     )
   );
 
   createSection(
-    "5〜8",
+    "11〜20",
     projects.filter(
-      p => p.number >= 5
+      p =>
+        p.number >= 11 &&
+        p.number <= 20
+    )
+  );
+
+  createSection(
+    "21〜30",
+    projects.filter(
+      p =>
+        p.number >= 21 &&
+        p.number <= 30
+    )
+  );
+
+  createSection(
+    "31〜35",
+    projects.filter(
+      p =>
+        p.number >= 31 &&
+        p.number <= 35
     )
   );
 
 }
-
 // =========================
 // カテゴリ順
 // =========================
@@ -501,7 +522,7 @@ if (title === "パフォーマンス") {
       </div>
 
       <div class="project-title">
-        仮企画 
+        ${project.title}
       </div>
 
 </div>
@@ -533,7 +554,7 @@ if (title === "パフォーマンス") {
 
         /* タイトル */
         modalTitle.textContent =
-          `仮企画 ${project.number}`;
+          project.title;
 
         /* カテゴリ */
         modalCategoryTag.textContent =
