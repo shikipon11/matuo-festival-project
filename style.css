@@ -523,7 +523,11 @@ h1 {
 
   background-color: #cd82ed;
 }
+/* 販売 */
+.sale{
 
+  background-color: #df8020;
+}
 .food-text {
 
   color: #dfcc20;
@@ -542,6 +546,10 @@ h1 {
 .performance-text {
 
   color: #cd82ed;
+}
+.sale-text {
+
+  color:#df8020;
 }
 /* 場所 */
 .place {
