@@ -551,6 +551,14 @@ function renderCategoryView() {
 
   contentArea.innerHTML = "";
 
+  
+  createSection(
+    "販売",
+    projects.filter(
+      p => p.category.includes("販売")
+    )
+  );
+
   createSection(
     "飲食",
     projects.filter(
@@ -576,13 +584,6 @@ function renderCategoryView() {
     "パフォーマンス",
     projects.filter(
       p => p.category.includes("パフォーマンス")
-    )
-  );
-
-  createSection(
-    "販売",
-    projects.filter(
-      p => p.category.includes("販売")
     )
   );
 
