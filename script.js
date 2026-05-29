@@ -93,7 +93,7 @@ const projects = [
         building: "その他",
         floor: "渡り廊下"
       }
-    ]
+    ],
     image: ["images/美術班.png"]
   },
   {
