@@ -862,12 +862,17 @@ h1 {
 
     padding: 100px 20px 20px;
 
+    padding-left: 20px;
+    box-sizing: border-box;
+
     box-sizing: border-box;
   }
   .dropdown-button {
     width: 100%;
     text-align: left;
     display: block;
+    padding-left: 20px;
+    box-sizing: border-box;
   }
 
 
