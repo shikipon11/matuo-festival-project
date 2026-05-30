@@ -880,6 +880,14 @@ h1 {
     text-align: left;
   }
 
+  
+  .dropdown-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+  }
+  
   /* 開いた */
   .header-nav.open {
 
