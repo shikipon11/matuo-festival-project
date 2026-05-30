@@ -864,6 +864,11 @@ h1 {
 
     box-sizing: border-box;
   }
+  .dropdown-button {
+    width: 100%;
+    text-align: left;
+    display: block;
+  }
 
 
 
