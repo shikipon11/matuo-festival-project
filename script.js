@@ -772,6 +772,19 @@ function createSection(title, data) {
 
     card.className =
       "project-card";
+    
+    if (
+    project.number === 1 &&
+    !localStorage.getItem(
+      "cardTutorialShown"
+    )
+  ) {
+
+    card.classList.add(
+      "tutorial"
+    );
+
+  }
 
     /* 色 */
     /* カテゴリタグHTML */
@@ -1061,26 +1074,6 @@ function createSection(title, data) {
     list.appendChild(card);
 
   });
-  if (
-    !localStorage.getItem(
-      "cardTutorialShown"
-    )
-  ) {
-
-    if (
-      project.number === 1 &&
-      !localStorage.getItem(
-        "cardTutorialShown"
-      )
-    ) {
-
-      card.classList.add(
-        "tutorial"
-      );
-
-    }
-
-  }
 
   // =========================
   // 開閉
