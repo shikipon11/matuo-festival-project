@@ -438,6 +438,61 @@ h1 {
 
 }
 
+/* ========================= */
+/* 初回チュートリアル */
+/* ========================= */
+
+.project-card.tutorial {
+
+  position: relative;
+
+  animation:
+    tutorialPulse 1.2s infinite;
+}
+
+.project-card.tutorial::after {
+
+  content:
+    "👇 タップして詳細を見る";
+
+  position: absolute;
+
+  top: -12px;
+  right: 10px;
+
+  background: #cc4125;
+
+  color: white;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.2);
+}
+
+@keyframes tutorialPulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .project-top {
 
   display: flex;
