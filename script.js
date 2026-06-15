@@ -490,24 +490,27 @@ async function loadCongestion(){
     congestionData =
       await response.json();
 
+    // 混雑状況取得後に再描画
     renderNumberView();
 
   }catch(error){
 
     console.error(error);
 
-    renderNumberView();
-
   }
 
 }
+// 最初に画面表示
+renderNumberView();
 
+// 混雑状況取得
 loadCongestion();
+
+// 15分ごと更新
 setInterval(
   loadCongestion,
-  30000
+  900000
 );
-
 // =========================
 // タブ切り替え
 // =========================
