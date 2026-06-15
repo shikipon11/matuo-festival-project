@@ -329,6 +329,7 @@ projects.forEach(project => {
     </button>
 
   </div>
+  `;
   
   const API_URL =
 "https://script.google.com/macros/s/AKfycbwau3GquTUWi1tCIFjwfy_gwvAlC2UE-AT6kfMXrzAO0J7SxqXH2i25Wnbk7oNUmyvR/exec";
