@@ -292,7 +292,7 @@ const projects = [
 // 要素取得
 // =========================
 const API_URL =
-"https://script.google.com/macros/library/d/1B4DAIpQJx-ySp6gaOa10g74UF8c6PvcUC-K48Hf46FAfacJdX6rijn6q/2";
+"https://script.google.com/macros/s/AKfycbxxqs7nc0gnhbGMkelwQKpM9R9CcOKEI5r75PpMz3S4XX1Ve6ONLD_FHet4-zUUbqsS/exec";
 
 let congestionData = {};
 function getStatusLabel(status){
