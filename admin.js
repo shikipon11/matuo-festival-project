@@ -329,6 +329,25 @@ projects.forEach(project => {
     </button>
 
   </div>
+  const API_URL =
+"https://script.google.com/macros/s/XXXXX/exec";
+
+function updateStatus(number,status){
+
+  fetch(API_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      number,
+      status
+    })
+  })
+  .then(() => {
+
+    alert("更新しました");
+
+  });
+
+}
 
   `;
 
