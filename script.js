@@ -310,7 +310,7 @@ function getStatusLabel(status){
       return "🔴 混雑";
 
     case "limit":
-      return "⚫ やっていない";
+      return "⚫ 現在休止中";
 
     default:
       return "⚪ 未設定";
