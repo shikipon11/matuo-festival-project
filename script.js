@@ -293,12 +293,13 @@ const projects = [
 // 要素取得
 // =========================
 const API_URL =
-"https://script.google.com/macros/s/AKfycbxxqs7nc0gnhbGMkelwQKpM9R9CcOKEI5r75PpMz3S4XX1Ve6ONLD_FHet4-zUUbqsS/exec";
+  "https://script.google.com/macros/s/AKfycbxxqs7nc0gnhbGMkelwQKpM9R9CcOKEI5r75PpMz3S4XX1Ve6ONLD_FHet4-zUUbqsS/exec";
 
 let congestionData = {};
-function getStatusLabel(status){
 
-  switch(status){
+function getStatusLabel(status) {
+
+  switch (status) {
 
     case "empty":
       return "🟢 空いている";
@@ -313,7 +314,30 @@ function getStatusLabel(status){
       return "⚫ 休止中";
 
     default:
-      return "⚪ 未設定";
+      return "⚪ 更新中";
+
+  }
+
+}
+
+function getStatusClass(status) {
+
+  switch (status) {
+
+    case "empty":
+      return "status-empty";
+
+    case "normal":
+      return "status-normal";
+
+    case "busy":
+      return "status-busy";
+
+    case "limit":
+      return "status-limit";
+
+    default:
+      return "status-default";
 
   }
 
@@ -480,9 +504,9 @@ document.addEventListener(
 // =========================
 // 初期表示
 // =========================
-async function loadCongestion(){
+async function loadCongestion() {
 
-  try{
+  try {
 
     const response =
       await fetch(API_URL);
@@ -493,7 +517,7 @@ async function loadCongestion(){
     // 混雑状況取得後に再描画
     renderNumberView();
 
-  }catch(error){
+  } catch (error) {
 
     console.error(error);
 
@@ -822,16 +846,16 @@ function createSection(title, data) {
 
     card.className =
       "project-card";
-    
-  if (index === 0) {
 
-    card.classList.add(
-      "tutorial"
-    );
+    if (index === 0) {
 
-  }
+      card.classList.add(
+        "tutorial"
+      );
+
+    }
     const status =
-  congestionData[project.number] || "";
+      congestionData[project.number] || "";
 
     /* 色 */
     /* カテゴリタグHTML */
@@ -893,9 +917,9 @@ function createSection(title, data) {
         ${project.title}
       </div>
       
-      <div class="project-congestion">
-      ${getStatusLabel(status)}
-      </div>
+      <div class="project-congestion ${getStatusClass(status)}">
+  ${getStatusLabel(status)}
+</div>
 
 </div>
 
