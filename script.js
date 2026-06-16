@@ -504,9 +504,9 @@ document.addEventListener(
 // =========================
 // 初期表示
 // =========================
-async function loadCongestion() {
+async function loadCongestion(){
 
-  try {
+  try{
 
     const response =
       await fetch(API_URL);
@@ -514,10 +514,17 @@ async function loadCongestion() {
     congestionData =
       await response.json();
 
-    // 混雑状況取得後に再描画
+    // 更新時刻
+    const now = new Date();
+
+    document.getElementById(
+      "last-update"
+    ).textContent =
+      `最終更新：${now.getHours().toString().padStart(2,"0")}:${now.getMinutes().toString().padStart(2,"0")}`;
+
     renderNumberView();
 
-  } catch (error) {
+  }catch(error){
 
     console.error(error);
 
