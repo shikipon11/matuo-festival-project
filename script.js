@@ -302,13 +302,13 @@ function getStatusLabel(status) {
   switch (status) {
 
     case "empty":
-      return "🟢 空いている";
+      return "🟢 空いてる";
 
     case "normal":
       return "🟡 やや混雑";
 
     case "busy":
-      return "🔴 混雑";
+      return "🔴 大変混雑";
 
     case "limit":
       return "⚫ 休止中";
