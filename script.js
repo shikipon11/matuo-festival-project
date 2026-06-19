@@ -314,7 +314,7 @@ function getStatusLabel(status) {
       return "⚫ 休止中";
 
     default:
-      return "⚪ 更新中";
+      return "⚪ 読み込み中";
 
   }
 
