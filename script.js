@@ -504,6 +504,26 @@ document.addEventListener(
 // =========================
 // 初期表示
 // =========================
+function refreshCurrentView() {
+
+  const activeTab =
+    document.querySelector(
+      ".tab-button.active"
+    ).dataset.tab;
+
+  if (activeTab === "number") {
+    renderNumberView();
+  }
+
+  if (activeTab === "category") {
+    renderCategoryView();
+  }
+
+  if (activeTab === "place") {
+    renderPlaceView();
+  }
+
+}
 async function loadCongestion(){
 
   try{
@@ -522,7 +542,7 @@ async function loadCongestion(){
     ).textContent =
       `最終更新：${now.getHours().toString().padStart(2,"0")}:${now.getMinutes().toString().padStart(2,"0")}`;
 
-    renderNumberView();
+    refreshCurrentView();
 
   }catch(error){
 
