@@ -1160,6 +1160,14 @@ function createSection(title, data) {
           }
 
         }
+        const commonImg = document.createElement("img");
+        commonImg.src = "images/map.jpg";   // 共通画像
+        commonImg.alt = "map";
+        commonImg.className = "common-image";
+        // すでに追加されていたら削除
+        document.querySelector(".common-image")?.remove();
+        // 場所の下に追加
+        modalPlace.insertAdjacentElement("afterend", commonImg);
 
         /* 表示 */
         modal.classList.add(
@@ -1225,6 +1233,7 @@ closeModal.addEventListener(
     modal.classList.remove(
       "show"
     );
+    document.querySelector(".common-image")?.remove();
 
   }
 );
@@ -1239,6 +1248,7 @@ modal.addEventListener(
       modal.classList.remove(
         "show"
       );
+      document.querySelector(".common-image")?.remove();
 
     }
 
@@ -1255,6 +1265,7 @@ document.addEventListener(
       modal.classList.remove(
         "show"
       );
+      document.querySelector(".common-image")?.remove();
 
     }
 
