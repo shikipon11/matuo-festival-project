@@ -29,7 +29,7 @@ const projects = [
   {
     number: 4,
     title: "写真",
-    category: ["展示"],
+    category: ["展示","販売"],
     place: "教室棟",
     floor: "4階",
     image: ["images/写真班.png"]
